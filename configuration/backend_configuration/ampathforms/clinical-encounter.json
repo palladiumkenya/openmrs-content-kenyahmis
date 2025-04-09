@@ -471,7 +471,10 @@
                         "label": "Other"
                       }
                     ]
-                  }
+                  },
+                  "hide": {
+                "hideWhenExpression": "complaintsToday !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
                 },
                 {
                   "label": "Specify other complaints",
@@ -526,14 +529,16 @@
                 {
                   "label": "Duration (Days)",
                   "type": "obs",
-                  "id": "complaint-duration",
+                  "id": "complaintduration",
                   "required": "true",
                   "questionOptions": {
                     "concept": "159368AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "rendering": "number",
                     "min": "0"
                   },
-                  "validators": []
+                  "hide": {
+                "hideWhenExpression": "complaintsToday !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
                 },
                 {
                   "label": "Onset Status",
@@ -552,7 +557,10 @@
                         "label": "Sudden"
                       }
                     ]
-                  }
+                  },
+                  "hide": {
+                "hideWhenExpression": "complaintsToday !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
                 }
               ]
             },
@@ -3450,7 +3458,10 @@
               "questionOptions": {
                 "rendering": "workspace-launcher",
                 "buttonLabel": "Add lab order",
-                "workspaceName": "add-lab-order"
+                "workspaceName": "add-lab-order",
+                "additionalProps": {
+                  "orderTypeUuid": "52a447d3-a64a-11e3-9aeb-50e549534c5e"
+                }
               },
               "hide": {
                 "hideWhenExpression": "visitTo === '167050AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' || investigationOrderd !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
@@ -3475,6 +3486,15 @@
                 "rendering": "repeating",
                 "dataSource": "diagnoses",
                 "rank": 2
+              }
+            },
+            {
+              "label": "Final Diagnosis Clinical notes",
+              "type": "obs",
+              "id": "finalDiagnosiscLinicalNotes",
+              "questionOptions": {
+                "concept": "160531AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "textarea"
               }
             }
           ]
