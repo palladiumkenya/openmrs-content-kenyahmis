@@ -78,7 +78,7 @@
     },
     "@kenyaemr/esm-login-app": {
         "logo": {
-            "src": "/openmrs/spa/kenyaemr-login-logo.png"
+            "src": "/openmrs/spa/config/assets/kenyahmis-package/kenyaemr-login-logo.png"
         },
         "links": {
             "src": "/openmrs/spa/home/service-queues"
