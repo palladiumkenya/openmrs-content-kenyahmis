@@ -122,6 +122,27 @@
     ],
     "Display conditions": {
       "privileges": ["o3: View Patient Banner"]
+    },
+    "extensionSlots": {
+      "patient-actions-slot": {
+        "configure": {
+          "delete-visit-buttont": {
+            "Display conditions": {
+              "privileges": ["o3: Delete Active Visit"]
+            }
+          },
+          "edit-patient-details-button": {
+            "Display conditions": {
+              "privileges": ["o3: Edit Patient"]
+            }
+          },
+          "mark-patient-deceased-button": {
+            "Display conditions": {
+              "privileges": ["o3: Mark Patient As Alive/Dead"]
+            }
+          }
+        }
+      }
     }
   },
   "@openmrs/esm-patient-chart-app": {
@@ -175,120 +196,6 @@
           }
         }
       },
-      "patient-chart-dashboard-slot": {
-        "remove": [
-          "allergies-summary-dashboard",
-          "conditions-summary-dashboard",
-          "patient-orders-summary-dashboard",
-          "test-results-summary-dashboard",
-          "medications-summary-dashboard"
-        ],
-        "add": ["patient-chart-clinical-consultation-nav-group"],
-        "configure": {
-          "allergies-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Allergies Dashboard"]
-            }
-          },
-          "attachments-results-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Attachments Dashboard"]
-            }
-          },
-          "billing-summary-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Bill History"]
-            }
-          },
-          "benefits-package-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Benefits Package Dashboard"]
-            }
-          },
-          "care-panel-summary-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Care Panel Dashboard"]
-            }
-          },
-          "charts-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Summary"]
-            }
-          },
-          "clinical-view-section": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Clinical View"]
-            }
-          },
-          "encounters-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Visits Dashboard"]
-            }
-          },
-          "case-encounter-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Case Management Dashboard"]
-            }
-          },
-          "conditions-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Conditions Dashboard"]
-            }
-          },
-          "in-patient-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart In-Patient Dashboard"]
-            }
-          },
-          "immunization-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Immunization Dashboard"]
-            }
-          },
-          "test-results-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Test Results Dashboard"]
-            }
-          },
-          "medications-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Medications Dashboard"]
-            }
-          },
-          "patient-orders-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Order Dashboard"]
-            }
-          },
-          "patient-appointments-summary-dashboard": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Appointments"]
-            }
-          },
-          "patient-chart-shr-summary-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View SHR Portal Dashboard"]
-            }
-          },
-          "referral-view-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Referrals Dashboard"]
-            }
-          },
-          "relationships-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Family History Dashboard"]
-            }
-          },
-          "results-summary-dashboard": {
-            "Display conditions": {
-              "privileges": [
-                "o3: View Patient Chart Vitals & Biometrics Dashboard"
-              ]
-            }
-          }
-        }
-      },
       "action-menu-patient-chart-items-slot": {
         "configure": {
           "clinical-form-action-menu": {
@@ -316,14 +223,12 @@
     "visitAttributeTypes": [],
     "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
     "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/kenyaemr-primary-logo.svg"
+      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
     },
     "Translation overrides": {
       "en": {
         "endActiveVisit": "Check out",
         "addVisit": "Check in",
-        "startVisit": "Check in",
-        "endVisit": "Check out",
         "startAVisit": "Check in",
         "endAVisit": "Check out",
         "Vitals & Biometrics dashboard": "Vitals & Anthropometric",
@@ -454,6 +359,11 @@
             "Display conditions": {
               "privileges": ["o3: View Imaging Order Form"]
             }
+          },
+          "medical-supply-order-panel": {
+            "Display conditions": {
+              "privileges": ["o3: View Medical Supply Order Form"]
+            }
           }
         }
       }
@@ -502,9 +412,16 @@
       },
       "homepage-dashboard-slot": {
         "remove": [
+          "home-widget-db-link",
+          "laboratory-dashboard-link",
           "service-queues-dashboard-link",
+          "referrals-link",
+          "lab-manifest-dashboard-link",
+          "ward-dashboard-link",
+          "pharmacy-dashboard-link",
           "clinical-appointments-dashboard-link",
-          "laboratory-dashboard-link"
+          "imaging-orders-link",
+          "procedure-dashboard-link"
         ],
         "add": [],
         "configure": {
@@ -525,19 +442,9 @@
               ]
             }
           },
-          "billing-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Bill Payment Dashboard"]
-            }
-          },
           "billing-dashboard-nav-group-link": {
             "Display conditions": {
               "privileges": ["o3: View Bill Payment Dashboard"]
-            }
-          },
-          "claims-management-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Claims Management Dashboard"]
             }
           },
           "case-management-dashboard-link": {
@@ -548,16 +455,6 @@
           "clinical-appointments-dashboard-link": {
             "Display conditions": {
               "privileges": ["o3: View Appointments Dashboard"]
-            }
-          },
-          "diagnostics-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Diagnostics Dashboard"]
-            }
-          },
-          "lab-manifest-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Lab Manifest"]
             }
           },
           "laboratory-dashboard-link": {
@@ -603,6 +500,159 @@
           "billable-exemptions-link": {
             "Display conditions": {
               "privileges": ["o3: View and Configure Exemption"]
+            }
+          },
+          "diagnostics-dashboard-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Diagnostics Dashboard"]
+            }
+          },
+          "patient-services-dashboard-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient services Dashboard"]
+            }
+          },
+          "linkage-services-dashboard-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Linkage services Dashboard"]
+            }
+          },
+          "kenyaemr-morgue-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Morgue Dashboard"]
+            }
+          },
+          "kenyaemr-wards-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Ward Dashboard"]
+            }
+          },
+          "billing-dashboard-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Bill Management Dashboard"]
+            }
+          },
+          "claims-management-dashboard-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Claims Management Dashboard"]
+            }
+          }
+        }
+      },
+      "patient-chart-dashboard-slot": {
+        "remove": [
+          "allergies-summary-dashboard",
+          "conditions-summary-dashboard",
+          "patient-orders-summary-dashboard",
+          "test-results-summary-dashboard",
+          "medications-summary-dashboard"
+        ],
+        "configure": {
+          "allergies-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Allergies Dashboard"]
+            }
+          },
+          "attachments-results-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Attachments Dashboard"]
+            }
+          },
+          "billing-summary-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Bill History"]
+            }
+          },
+          "benefits-package-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Benefits Package Dashboard"]
+            }
+          },
+          "care-panel-summary-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Care Panel Dashboard"]
+            }
+          },
+          "charts-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Summary"]
+            }
+          },
+          "clinical-view-section": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Clinical View"]
+            }
+          },
+          "encounters-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Visits Dashboard"]
+            }
+          },
+          "case-encounter-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Case Management Dashboard"]
+            }
+          },
+          "conditions-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Conditions Dashboard"]
+            }
+          },
+          "in-patient-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart In-Patient Dashboard"]
+            }
+          },
+          "immunization-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Immunization Dashboard"]
+            }
+          },
+          "test-results-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Test Results Dashboard"]
+            }
+          },
+          "medications-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Medications Dashboard"]
+            }
+          },
+          "patient-orders-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Order Dashboard"]
+            }
+          },
+          "patient-appointments-summary-dashboard": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Appointments"]
+            }
+          },
+          "patient-chart-shr-summary-dashboard-link": {
+            "Display conditions": {
+              "privileges": ["o3: View SHR Portal Dashboard"]
+            }
+          },
+          "referral-view-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Referrals Dashboard"]
+            }
+          },
+          "relationships-link": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Relationships Dashboard"]
+            }
+          },
+          "results-summary-dashboard": {
+            "Display conditions": {
+              "privileges": [
+                "o3: View Patient Chart Vitals & Biometrics Dashboard"
+              ]
+            }
+          },
+          "patient-chart-clinical-consultation-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Clinical Consultation"]
             }
           }
         }
