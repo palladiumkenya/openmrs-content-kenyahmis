@@ -394,7 +394,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
+      "src": "/openmrs/spa/config/assets/kenyahmis-package/kenyaemr-primary-logo.svg"
     },
     "extensionSlots": {
       "app-menu-slot": {
@@ -415,7 +415,8 @@
         }
       },
       "homepage-dashboard-slot": {
-        "remove": [],
+        "remove": [
+        ],
         "add": [],
         "configure": {
           "home-widget-db-link": {
