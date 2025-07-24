@@ -394,7 +394,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/kenyaemr-primary-logo.svg"
+      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
     },
     "extensionSlots": {
       "app-menu-slot": {
@@ -416,8 +416,14 @@
       },
       "homepage-dashboard-slot": {
         "remove": [
+          "claims-management-dashboard-nav-group",
+          "patient-services-dashboard-nav-group",
+          "linkage-services-dashboard-nav-group",
+          "diagnostics-dashboard-nav-group",
+          "kenyaemr-home-page-link",
+          "kenyaemr-wards-dashboard-link"
         ],
-        "add": [],
+        "add": ["procedure-dashboard-link", "imaging-orders-link"],
         "configure": {
           "home-widget-db-link": {
             "Display conditions": {
@@ -534,13 +540,7 @@
         }
       },
       "patient-chart-dashboard-slot": {
-        "remove": [
-          "allergies-summary-dashboard",
-          "conditions-summary-dashboard",
-          "patient-orders-summary-dashboard",
-          "test-results-summary-dashboard",
-          "medications-summary-dashboard"
-        ],
+        "remove": ["patient-chart-clinical-consultation-nav-group"],
         "configure": {
           "allergies-summary-dashboard": {
             "Display conditions": {
@@ -642,11 +642,6 @@
               "privileges": [
                 "o3: View Patient Chart Vitals & Biometrics Dashboard"
               ]
-            }
-          },
-          "patient-chart-clinical-consultation-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Clinical Consultation"]
             }
           }
         }
