@@ -88,7 +88,8 @@
           "alt": "KenyaEMR"
         }
       ]
-    }
+    },
+    "backgroundImage": "/openmrs/spa/config/assets/kenyahmis-package/login-background.png"
   },
   "@kenyaemr/esm-stock-management-app": {
     "stockTakeReasonUUID": "b1267598-6048-4146-af84-98716b88a25a"
