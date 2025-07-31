@@ -72,7 +72,7 @@
   },
   "@kenyaemr/esm-login-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-login-logo.png"
+      "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png"
     },
     "links": {
       "src": "/openmrs/spa/home/service-queues"
@@ -80,11 +80,11 @@
     "footer": {
       "additionalLogos": [
         {
-          "src": "/openmrs/spa/sha_logo.svg",
+          "src": "/openmrs/spa/config/assets/kenyahmis-package/sha_logo.svg",
           "alt": "SHA"
         },
         {
-          "src": "/openmrs/spa/kenyaemr-login-logo.png",
+          "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png",
           "alt": "KenyaEMR"
         }
       ]
