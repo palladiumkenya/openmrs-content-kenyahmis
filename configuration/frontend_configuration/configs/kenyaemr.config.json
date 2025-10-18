@@ -38,31 +38,25 @@
     "Enabled feature flags": ["healthInformationExchange"]
   },
   "@kenyaemr/esm-login-app": {
-    "backgroundImage": {
-      "src": "/openmrs/spa/login-background_ksm.svg"
-    },
-    "showPasswordOnSeparateScreen": false,
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-login-logo_poweredby_kenyaemr.png"
+      "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png"
+    },
+    "links": {
+      "loginSuccess": "${openmrsSpaBase}/home/facility-dashboard"
     },
     "footer": {
       "additionalLogos": [
         {
-          "src": "/openmrs/spa/kenya_republic_logo.png",
-          "alt": "KenyaEMR"
+          "src": "/openmrs/spa/config/assets/kenyahmis-package/sha_logo.svg",
+          "alt": "SHA"
         },
         {
-          "src": "/openmrs/spa/dha_logo.png",
-          "alt": "DHA"
+          "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png",
+          "alt": "KenyaEMR"
         }
       ]
     },
-    "badgeLogo": {
-      "src": "/openmrs/spa/badge_ksm.png"
-    },
-    "links": {
-      "loginSuccess": "${openmrsSpaBase}/home/facility-dashboard"
-    }
+    "backgroundImage": "/openmrs/spa/config/assets/kenyahmis-package/login-background.png"
   },
   "@kenyaemr/esm-patient-clinical-view-app": {
     "extensionSlots": {
