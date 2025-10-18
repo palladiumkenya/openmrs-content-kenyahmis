@@ -263,7 +263,7 @@
     "visitAttributeTypes": [],
     "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
+      "src": "/openmrs/spa/config/assets/kenyahmis-package/primary-logo.svg"
     },
     "Translation overrides": {
       "en": {
@@ -426,7 +426,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-primary-logo.svg",
+      "src": "/openmrs/spa/config/assets/kenyahmis-package/primary-logo.svg",
       "link": "${openmrsSpaBase}/home/facility-dashboard"
     },
     "extensionSlots": {
