@@ -476,7 +476,7 @@
               "validators": []
             },
             {
-              "label": "Clinical Diagnosis",
+              "label": "Impression",
               "id": "clinicalDiagnosisId",
               "type": "diagnosis",
              "questionOptions": {
@@ -498,7 +498,10 @@
               "questionOptions": {
                 "rendering": "workspace-launcher",
                 "buttonLabel": "Add lab order",
-                "workspaceName": "add-lab-order"
+                "workspaceName": "add-lab-order",
+                "additionalProps": {
+                  "orderTypeUuid": "52a447d3-a64a-11e3-9aeb-50e549534c5e"
+                }
               }
             }
           ]

@@ -1,38 +1,4 @@
 {
-  "@kenyaemr/esm-appointments-app": {
-    "concepts": {
-      "visitQueueNumberAttributeUuid": "c61ce16f-272a-41e7-9924-4c555d0932c5"
-    },
-    "includePhoneNumberInExcelSpreadsheet": true,
-    "allowAllDayAppointments": true,
-    "showServiceQueueFields": true,
-    "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
-    "patientIdentifierType": "Unique Patient Number",
-    "showUnscheduledAppointmentsTab": false,
-    "appointmentStatuses": ["Scheduled"],
-    "appointmentTypes": ["Scheduled"],
-    "extensionSlots": {
-      "scheduled-appointments-panels-slot": {
-        "remove": ["cancelled-appointments-panel"],
-        "configure": {
-          "expected-appointments-panel": {
-            "showForPastDate": true,
-            "showForFutureDate": true
-          },
-          "completed-appointments-panel": {
-            "showForPastDate": true,
-            "showForFutureDate": false
-          }
-        }
-      }
-    },
-    "checkInButton": {
-      "enabled": false
-    },
-    "checkOutButton": {
-      "enabled": false
-    }
-  },
   "@kenyaemr/esm-bed-management-app": {
     "patientListForAdmissionUrl": "/ws/rest/v1/kenyaemr/sql?q=bedManagement.sqlGet.patientListForAdmission",
     "admissionLocationTagUuid": "0815e0b2-1182-4157-9340-bee371ea41e4"
@@ -68,36 +34,40 @@
         "value": "ABOVE_60_YRS",
         "label": "Above 60 years"
       }
-    ]
+    ],
+    "Enabled feature flags": ["healthInformationExchange"]
   },
   "@kenyaemr/esm-login-app": {
-    "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png"
+    "backgroundImage": {
+      "src": "/openmrs/spa/login-background_ksm.svg"
     },
-    "links": {
-      "src": "/openmrs/spa/home/service-queues"
+    "showPasswordOnSeparateScreen": false,
+    "logo": {
+      "src": "/openmrs/spa/kenyaemr-login-logo_poweredby_kenyaemr.png"
     },
     "footer": {
       "additionalLogos": [
         {
-          "src": "/openmrs/spa/config/assets/kenyahmis-package/sha_logo.svg",
-          "alt": "SHA"
+          "src": "/openmrs/spa/kenya_republic_logo.png",
+          "alt": "KenyaEMR"
         },
         {
-          "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png",
-          "alt": "KenyaEMR"
+          "src": "/openmrs/spa/dha_logo.png",
+          "alt": "DHA"
         }
       ]
     },
-    "backgroundImage": "/openmrs/spa/config/assets/kenyahmis-package/login-background.png"
-  },
-  "@kenyaemr/esm-stock-management-app": {
-    "stockTakeReasonUUID": "b1267598-6048-4146-af84-98716b88a25a"
+    "badgeLogo": {
+      "src": "/openmrs/spa/badge_ksm.png"
+    },
+    "links": {
+      "loginSuccess": "${openmrsSpaBase}/home/facility-dashboard"
+    }
   },
   "@kenyaemr/esm-patient-clinical-view-app": {
     "extensionSlots": {
       "clinical-view-section": {
-        "remove": ["clinical-encounter-link"],
+        "remove": [],
         "configure": {
           "maternal-and-child-health-dashboard-group-link": {
             "Display conditions": {
@@ -274,7 +244,7 @@
       },
       {
         "id": "opthamology-clinic",
-        "title": "Opthamology",
+        "title": "Ophthalmology",
         "formUuid": "235900ff-4d4a-4575-9759-96f325f5e291",
         "encounterTypeUuid": "465a92f2-baf8-42e9-9612-53064be868e8"
       },
@@ -325,9 +295,75 @@
   "@kenyaemr/esm-procedure-app": {
     "procedureOrderTypeUuid": "b4a7c280-369e-4d12-9ce8-18e36783fed6"
   },
+  "@openmrs/esm-service-queues-app": {
+    "concepts": {
+      "priorityConceptSetUuid": "2260a79e-f391-40f7-9eba-2e0e67028392",
+      "defaultPriorityConceptUuid": "80cd8f8c-5d82-4cdc-b96e-a6addeb94b7f",
+      "emergencyPriorityConceptUuid": "037446f4-adfc-40b3-928c-a39a4826b1bf",
+      "serviceConceptSetUuid": "d7bd4cc0-90b1-4f22-90f2-ab7fde936727",
+      "statusConceptSetUuid": "9484732b-bcaf-429e-86cb-d6cf3da34211",
+      "defaultStatusConceptUuid": "167407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "defaultTransitionStatus": "167408AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "historicalObsConceptUuid": ["161643AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]
+    },
+    "priorityConfigs": [
+      {
+        "conceptUuid": "037446f4-adfc-40b3-928c-a39a4826b1bf",
+        "tagClassName": "tag",
+        "tagType": "red"
+      },
+      {
+        "conceptUuid": "80cd8f8c-5d82-4cdc-b96e-a6addeb94b7f",
+        "tagClassName": "tag",
+        "tagType": "green"
+      },
+      {
+        "conceptUuid": "ef5718cd-d6d5-4fcf-bb82-cc4afaa90603",
+        "tagClassName": "tag",
+        "tagType": "gray"
+      }
+    ],
+    "visitQueueNumberAttributeUuid": "c61ce16f-272a-41e7-9924-4c555d0932c5",
+    "queueTables": {
+      "columnDefinitions": [
+        {
+          "id": "serve-patient",
+          "columnType": "extension",
+          "header": "Serve Patient"
+        }
+      ],
+      "tableDefinitions": [
+        {
+          "columns": [
+            "patient-name",
+            "queue-number",
+            "coming-from",
+            "priority",
+            "status",
+            "queue",
+            "wait-time",
+            "serve-patient",
+            "actions"
+          ]
+        }
+      ]
+    },
+    "showQueueTableTab": false,
+    "defaultIdentifierTypes": [
+      "05ee9cf4-7242-4a17-b4d4-00f707265c8a",
+      "f85081e2-b4be-4e48-b3a4-7994b69bb101"
+    ],
+    "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
+    "Translation overrides": {
+      "en": {
+        "change": "Move to the next queue"
+      }
+    }
+  },
   "@kenyaemr/esm-shr-app": {},
   "@kenyaemr/esm-imaging-orders-app": {
     "extensionSlots": {
+      "top-of-imaging-order-form-slot": {},
       "imaging-orders-action": {
         "add": ["billing-test-order-action"]
       }
@@ -342,11 +378,66 @@
   },
   "@kenyaemr/esm-patient-search-app": {
     "search": {
-      "disableTabletSearchOnKeyUp": true
+      "disableTabletSearchOnKeyUp": true,
+      "showRecentlySearchedPatients": false
     },
     "defaultIdentifierTypes": ["24aedd37-b5be-4e08-8311-3721b8d5100d"]
   },
   "@kenyaemr/esm-version-app": {
     "extensionSlots": {}
+  },
+  "@kenyaemr/esm-stock-management-app": {
+    "autoPopulateResponsiblePerson": true,
+    "stockTakeReasonUUID": "b1267598-6048-4146-af84-98716b88a25a",
+    "enablePrintButton": true,
+    "Display conditions": {
+      "privileges": ["o3: Manage Stocks"]
+    }
+  },
+  "@kenyaemr/esm-express-workflow-app": {
+    "extensionSlots": {
+      "ewf-patient-summary-slot": {
+        "add": ["conditions-overview-widget", "allergies-details-widget"]
+      },
+      "ewf-vitals-slot": {
+        "add": ["vitals-overview-widget", "biometrics-overview-widget"]
+      },
+      "ewf-care-panel-slot": {
+        "add": ["care-panel-patient-summary"]
+      },
+      "ewf-immunizations-slot": {
+        "add": ["immunization-overview-widget"]
+      },
+      "ewf-relationships-slot": {
+        "add": ["relationship-dashboard"]
+      },
+      "ewf-appointments-slot": {
+        "add": ["appointments-details-widget"]
+      },
+      "ewf-attachments-slot": {
+        "add": ["attachments-overview-widget"]
+      },
+      "ewf-visits-slot": {
+        "add": ["past-visits-detail-overview"]
+      },
+      "ewf-case-management-slot": {
+        "add": ["case-encounter-table"]
+      },
+      "ewf-special-clinics-slot": {
+        "add": ["special-clinics-dashboard"]
+      },
+      "ewf-laboratory-results-slot": {
+        "add": ["results-viewer"]
+      },
+      "ewf-active-medications-slot": {
+        "add": ["active-medications-widget"]
+      },
+      "ewf-past-medications-slot": {
+        "add": ["medications-details-widget"]
+      },
+      "ewf-admissions-dashboard-slot": {
+        "add": ["in-patient-dashboard"]
+      }
+    }
   }
 }

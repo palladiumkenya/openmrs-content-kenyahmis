@@ -93,6 +93,40 @@
       "visitTypesUuids": ["3371a4d4-f66f-4454-a86d-92c7b3da990c"]
     }
   },
+  "@openmrs/esm-appointments-app": {
+    "concepts": {
+      "visitQueueNumberAttributeUuid": "c61ce16f-272a-41e7-9924-4c555d0932c5"
+    },
+    "includePhoneNumberInExcelSpreadsheet": true,
+    "allowAllDayAppointments": true,
+    "showServiceQueueFields": true,
+    "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
+    "patientIdentifierType": "Unique Patient Number",
+    "showUnscheduledAppointmentsTab": false,
+    "appointmentStatuses": ["Scheduled"],
+    "appointmentTypes": ["Scheduled"],
+    "extensionSlots": {
+      "scheduled-appointments-panels-slot": {
+        "remove": ["cancelled-appointments-panel"],
+        "configure": {
+          "expected-appointments-panel": {
+            "showForPastDate": true,
+            "showForFutureDate": true
+          },
+          "completed-appointments-panel": {
+            "showForPastDate": true,
+            "showForFutureDate": false
+          }
+        }
+      }
+    },
+    "checkInButton": {
+      "enabled": false
+    },
+    "checkOutButton": {
+      "enabled": false
+    }
+  },
   "@openmrs/esm-form-entry-app": {
     "customEncounterDatetime": true
   },
@@ -104,6 +138,7 @@
     }
   },
   "@openmrs/esm-laboratory-app": {
+    "enableReviewingLabResultsBeforeApproval": true,
     "extensionSlots": {
       "tests-ordered-actions-slot": {
         "remove": ["pick-lab-request-action"]
@@ -171,30 +206,29 @@
         "remove": ["patient-flag-tags"]
       },
       "patient-chart-summary-dashboard-slot": {
-        "remove": ["biometrics-overview-widget", "vitals-overview-widget"],
-        "add": ["allergies-details-widget", "immunization-overview-widget"],
+        "remove": [
+          "biometrics-overview-widget",
+          "vitals-overview-widget",
+          "allergies-details-widget",
+          "immunization-overview-widget",
+          "active-medications-widget",
+          "conditions-overview-widget"
+        ],
+        "add": [],
         "configure": {
-          "allergies-details-widget": {
-            "Display conditions": {
-              "privileges": ["o3: View Allergies Dashboard"]
-            }
-          },
-          "immunization-overview-widget": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Immunization Dashboard"]
-            }
-          },
-          "active-medications-widget": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Medications Dashboard"]
-            }
-          },
-          "conditions-overview-widget": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient Chart Conditions Dashboard"]
-            }
-          }
-        }
+          "layoutMode": "anchored"
+        },
+        "order": [
+          "ewf-homepage-dashboard-link",
+          "charts-summary-dashboard",
+          "ewf-clinical-encounter-link",
+          "ewf-laboratory-dashboard-link",
+          "ewf-radiology-and-imaging-dashboard-link",
+          "ewf-pharmacy-dashboard-link",
+          "ewf-procedures-dashboard-link",
+          "ewf-admissions-dashboard-link",
+          "hiv-care-and-treatment-dashboard-link"
+        ]
       },
       "action-menu-patient-chart-items-slot": {
         "order": [
@@ -222,13 +256,14 @@
       }
     },
     "showExtraVisitAttributesSlot": true,
-    "showServiceQueueFields": true,
+    "showServiceQueueFields": false,
+    "isDHAWorkflow": true,
     "showUpcomingAppointments": true,
     "visitQueueNumberAttributeUuid": "c61ce16f-272a-41e7-9924-4c555d0932c5",
     "visitAttributeTypes": [],
     "defaultFacilityUrl": "/ws/rest/v1/kenyaemr/default-facility",
     "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/primary-logo.svg"
+      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
     },
     "Translation overrides": {
       "en": {
@@ -237,7 +272,8 @@
         "startAVisit": "Check in",
         "endAVisit": "Check out",
         "Vitals & Biometrics dashboard": "Vitals & Anthropometric",
-        "vitalsAndBiometrics": "Vitals & Anthropometric"
+        "vitalsAndBiometrics": "Vitals & Anthropometric",
+        "visitType_title": "Department"
       }
     }
   },
@@ -339,6 +375,7 @@
     }
   },
   "@openmrs/esm-patient-orders-app": {
+    "enableReviewingLabResultsBeforeApproval": true,
     "showReferenceNumberField": false,
     "orderEncounterType": "7df67b83-1b84-4fe2-b1b7-794b4e9bfcc3",
     "extensionSlots": {
@@ -362,11 +399,6 @@
           "imaging-order-panel": {
             "Display conditions": {
               "privileges": ["o3: View Imaging Order Form"]
-            }
-          },
-          "medical-supply-order-panel": {
-            "Display conditions": {
-              "privileges": ["o3: View Medical Supply Order Form"]
             }
           }
         }
@@ -394,7 +426,8 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/primary-logo.svg"
+      "src": "/openmrs/spa/kenyaemr-primary-logo.svg",
+      "link": "${openmrsSpaBase}/home/facility-dashboard"
     },
     "extensionSlots": {
       "app-menu-slot": {
@@ -415,132 +448,39 @@
         }
       },
       "homepage-dashboard-slot": {
-        "remove": [
-          "claims-management-dashboard-nav-group",
-          "patient-services-dashboard-nav-group",
-          "linkage-services-dashboard-nav-group",
-          "diagnostics-dashboard-nav-group",
-          "kenyaemr-home-page-link",
-          "kenyaemr-wards-dashboard-link"
-        ],
-        "add": ["procedure-dashboard-link", "imaging-orders-link"],
-        "configure": {
-          "home-widget-db-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Home Dashboard"]
-            }
-          },
-          "kenyaemr-home-page-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Home Dashboard"]
-            }
-          },
-          "bed-admission-dashboard-link": {
-            "Display conditions": {
-              "privileges": [
-                "o3: View Bed Management In-Patient Home Page Link"
-              ]
-            }
-          },
-          "billing-dashboard-nav-group-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Bill Payment Dashboard"]
-            }
-          },
-          "case-management-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Case Management Dashboard"]
-            }
-          },
-          "clinical-appointments-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Appointments Dashboard"]
-            }
-          },
-          "laboratory-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Laboratory Dashboard"]
-            }
-          },
-          "pharmacy-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Community Pharmacy Dashboard"]
-            }
-          },
-          "procedure-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Procedure Dashboard"]
-            }
-          },
-          "imaging-orders-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Imaging Dashboard"]
-            }
-          },
-          "referrals-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Referrals Dashboard"]
-            }
-          },
-          "kenyaemr-referrals-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Referrals Dashboard"]
-            }
-          },
-          "service-queues-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Service Queue Dashboard"]
-            }
-          },
-          "peer-calendar-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Peer Calendar Dashboard"]
-            }
-          },
-          "billable-exemptions-link": {
-            "Display conditions": {
-              "privileges": ["o3: View and Configure Exemption"]
-            }
-          },
-          "diagnostics-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Diagnostics Dashboard"]
-            }
-          },
-          "patient-services-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Patient services Dashboard"]
-            }
-          },
-          "linkage-services-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Linkage services Dashboard"]
-            }
-          },
-          "kenyaemr-morgue-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Morgue Dashboard"]
-            }
-          },
-          "kenyaemr-wards-dashboard-link": {
-            "Display conditions": {
-              "privileges": ["o3: View Ward Dashboard"]
-            }
-          },
-          "billing-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Bill Management Dashboard"]
-            }
-          },
-          "claims-management-dashboard-nav-group": {
-            "Display conditions": {
-              "privileges": ["o3: View Claims Management Dashboard"]
-            }
-          }
-        }
+        "remove": ["clinical-appointments-dashboard-link", "referrals-link","service-queues-dashboard-link"],
+        "add": [],
+        "configure": {},
+        "order": [
+          "facility-dashboard-link",
+          "registration-dashboard-link",
+          "triage-dashboard-link",
+          "consultation-dashboard-link",
+          "mch-dashboard-link",
+          "ward-dashboard-link",
+          "procedure-dashboard-link",
+          "radiology-dashboard-link",
+          "laboratory-dashboard-link",
+          "pharmacy-homepage-dashboard-link",
+          "accounting-dashboard-link",
+          "reports-homepage-dashboard-link",
+          "mortuary-dashboard-link"
+        ]
       },
       "patient-chart-dashboard-slot": {
-        "remove": ["patient-chart-clinical-consultation-nav-group"],
+        "remove": [
+          "patient-appointments-summary-dashboard",
+          "allergies-summary-dashboard",
+          "attachments-results-summary-dashboard",
+          "conditions-summary-dashboard",
+          "encounters-summary-dashboard",
+          "patient-orders-summary-dashboard",
+          "immunization-summary-dashboard",
+          "programs-summary-dashboard",
+          "medications-summary-dashboard",
+          "results-summary-dashboard",
+          "test-results-summary-dashboard"
+        ],
         "configure": {
           "allergies-summary-dashboard": {
             "Display conditions": {
@@ -643,6 +583,11 @@
                 "o3: View Patient Chart Vitals & Biometrics Dashboard"
               ]
             }
+          },
+          "patient-chart-clinical-consultation-nav-group": {
+            "Display conditions": {
+              "privileges": ["o3: View Patient Chart Clinical Consultation"]
+            }
           }
         }
       }
@@ -651,7 +596,8 @@
   "@openmrs/esm-styleguide": {
     "Brand color #1": "#183D1A",
     "Brand color #2": "#1D491F",
-    "Brand color #3": " #2C6D2F"
+    "Brand color #3": " #2C6D2F",
+    "implementationName": "Home"
   },
   "@openmrs/esm-stock-management-app": {
     "Display conditions": {
@@ -678,7 +624,7 @@
     }
   },
   "@openmrs/esm-app-shell": {
-    "Enabled feature flags": ["mpiFlag", "rde"]
+    "Enabled feature flags": ["mpiFlag", "rde", "healthInformationExchange"]
   },
   "@openmrs/esm-patient-attachments-app": {
     "maxFileSize": 5
