@@ -42,7 +42,7 @@
       "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png"
     },
     "links": {
-      "loginSuccess": "${openmrsSpaBase}/home/facility-dashboard"
+      "loginSuccess": "${openmrsSpaBase}/home"
     },
     "footer": {
       "additionalLogos": [
@@ -427,10 +427,13 @@
         "add": ["active-medications-widget"]
       },
       "ewf-past-medications-slot": {
-        "add": ["medications-details-widget"]
+        "add": ["past-medications-widget"]
       },
       "ewf-admissions-dashboard-slot": {
         "add": ["in-patient-dashboard"]
+      },
+      "ewf-clinical-encounter-lab-results-slot": {
+        "add": ["results-viewer"]
       }
     }
   }
