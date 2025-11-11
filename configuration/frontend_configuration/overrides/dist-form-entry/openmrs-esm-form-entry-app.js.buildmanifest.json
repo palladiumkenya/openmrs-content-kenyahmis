@@ -7873,6 +7873,32 @@
       "initial": false,
       "entry": false,
       "recorded": false,
+      "size": 6213591,
+      "sizes": {
+        "javascript": 6213591
+      },
+      "names": [
+        "bootstrap"
+      ],
+      "idHints": [],
+      "runtime": [
+        "@openmrs/esm-form-entry-app",
+        "main"
+      ],
+      "files": [
+        "27239.fb749d981a08e1b2.js"
+      ],
+      "auxiliaryFiles": [
+        "27239.fb749d981a08e1b2.js.map"
+      ],
+      "hash": "a1291fa1cac97d6c",
+      "childrenByOrder": {}
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
       "size": 2169,
       "sizes": {
         "javascript": 2169
@@ -11596,12 +11622,12 @@
       ],
       "files": [
         "main.c9fedbf76d90aec0.css",
-        "main.9ab7fd1d594f24dd.js"
+        "main.d445c60967cb063e.js"
       ],
       "auxiliaryFiles": [
-        "main.9ab7fd1d594f24dd.js.map"
+        "main.d445c60967cb063e.js.map"
       ],
-      "hash": "677ab2541c3ae9db",
+      "hash": "aedaf72aedd05959",
       "childrenByOrder": {}
     },
     {
@@ -14976,7 +15002,7 @@
       "auxiliaryFiles": [
         "openmrs-esm-form-entry-app.js.map"
       ],
-      "hash": "19897c29bb9d4c82",
+      "hash": "95adf54dd3eaa974",
       "childrenByOrder": {}
     },
     {
@@ -20192,32 +20218,6 @@
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 5935921,
-      "sizes": {
-        "javascript": 5935921
-      },
-      "names": [
-        "bootstrap"
-      ],
-      "idHints": [],
-      "runtime": [
-        "@openmrs/esm-form-entry-app",
-        "main"
-      ],
-      "files": [
-        "66159.de744effb1f3fbf1.js"
-      ],
-      "auxiliaryFiles": [
-        "66159.de744effb1f3fbf1.js.map"
-      ],
-      "hash": "bd3481127f1807a1",
-      "childrenByOrder": {}
-    },
-    {
-      "rendered": true,
-      "initial": false,
-      "entry": false,
-      "recorded": false,
       "size": 8695,
       "sizes": {
         "javascript": 8695
@@ -21896,7 +21896,7 @@
         "styles.c9fedbf76d90aec0.css"
       ],
       "auxiliaryFiles": [],
-      "hash": "c23067812ca51445",
+      "hash": "874799f341bd7f76",
       "childrenByOrder": {}
     },
     {
@@ -24861,9 +24861,9 @@
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 2168,
+      "size": 2580,
       "sizes": {
-        "javascript": 2168
+        "javascript": 2580
       },
       "names": [],
       "idHints": [],
@@ -24872,12 +24872,12 @@
         "main"
       ],
       "files": [
-        "81197.c550edb10201c0ca.js"
+        "81197.527b7200cc96daea.js"
       ],
       "auxiliaryFiles": [
-        "81197.c550edb10201c0ca.js.map"
+        "81197.527b7200cc96daea.js.map"
       ],
-      "hash": "2b7172cfbb72fe67",
+      "hash": "4589999add884766",
       "childrenByOrder": {}
     },
     {
@@ -27930,12 +27930,12 @@
       ],
       "files": [
         "90739.c9fedbf76d90aec0.css",
-        "90739.43578afb352f89c9.js"
+        "90739.b1c2c35ae3419768.js"
       ],
       "auxiliaryFiles": [
-        "90739.43578afb352f89c9.js.map"
+        "90739.b1c2c35ae3419768.js.map"
       ],
-      "hash": "c9e6efbc3907f711",
+      "hash": "b7dcd752ea393c0e",
       "childrenByOrder": {}
     },
     {
