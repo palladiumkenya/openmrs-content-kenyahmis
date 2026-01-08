@@ -1,7 +1,7 @@
 {
   "name": "Triage",
   "description": "Triage",
-  "version": "2.0",
+  "version": "2.1",
   "published": true,
 
   "uuid": "37f6bd8d-586a-4169-95fa-5781f987fe62",
@@ -60,7 +60,7 @@
               "id": "complaintsToday",
               "required": "true",
               "questionOptions": {
-                "concept": "5219AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "1154AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "radio",
                 "answers": [
                   {
@@ -823,9 +823,8 @@
                 "min": "25"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 37.5 || myValue < 35)",
-                "message": "Temperature is out of range (Normal range 35-37)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Mode of Collection?",
@@ -862,9 +861,8 @@
                 "rendering": "number"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 100.5 || myValue < 59.5)",
-                "message": "Pulse Rate is out of range (Normal range 60-100)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Systolic B.P",
@@ -875,9 +873,8 @@
                 "rendering": "number"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 130.5 || myValue < 119.5)",
-                "message": "Systolic is out of range (Normal range 120-130)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Diastolic B.P",
@@ -888,9 +885,8 @@
                 "rendering": "number"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 85.5 || myValue < 79.5)",
-                "message": "Diastolic is out of range (Normal range 80-85)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Respiratory Rate",
@@ -901,9 +897,8 @@
                 "rendering": "number"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 16.5 || myValue < 11.5)",
-                "message": "Respiratory Rate is out of range (Normal range 12-16)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Oxygen Saturation",
@@ -914,9 +909,8 @@
                 "rendering": "number"
               },
               "alert": {
-                "alertWhenExpression": "myValue && (myValue >= 100.5 || myValue < 94.5)",
-                "message": "Oxygen Saturation is out of range (Normal range 95-100)"
-              }
+              "useConceptReferenceRange": true
+            }
             },
             {
               "label": "Mode of Collection?",
@@ -1279,21 +1273,41 @@
           ]
         },
         {
-          "label": "Triage Notes",
+          "label": "TEWS Score",
           "isExpanded": "true",
           "questions": [
-             {
+               {
               "label": "TEWS Score",
+              "type": "obs",
+              "id": "tewsScore",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "52836315-6ca0-4df0-9916-f46aeaca364f",
+                "readOnly": "true",
+                "calculate": {
+                  "calculateExpression": "calcSouthAfricanTEWS(age, height, respRate, pulseRate, temperature, sysBP, avpuLevel, avpuLevelAdult, mobilityChild, mobilityAdult, traumaInjury).score"
+                }
+              },
+              "alert": {
+                "useTewsRange": true
+              }
+            },
+             {
+              "label": "TEWS Category",
               "type": "obs",
               "id": "tewsCategory",
               "questionOptions": {
-                "rendering": "radio",
+               "rendering": "radio",
                 "concept": "159637AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "readOnly": "true",
-                "answers": [
+                  "calculate": {
+                  "calculateExpression": "calcSouthAfricanTEWS(age, height, respRate, pulseRate, temperature, sysBP, avpuLevel, avpuLevelAdult, mobilityChild, mobilityAdult, traumaInjury).priority"
+                },
+                     "answers": [
                   {
                     "concept": "1882AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Emergency"
+
                   },
                   {
                     "concept": "159409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -1306,14 +1320,17 @@
                   {
                     "concept": "1115AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Routine"
-                  },
-                  {
-                    "concept": "159AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "Deceased"
                   }
+                  
                 ]
               }
-            },
+            }
+          ]
+        },
+        {
+          "label": "Triage Notes",
+          "isExpanded": "true",
+          "questions": [
             {
               "label": "Triage Notes:",
               "type": "obs",

@@ -785,7 +785,7 @@
                 {
                   "label": "Medicine Causing Reaction",
                   "type": "obs",
-                  "id": "AdVerseMed",
+                  "id": "adverseMed",
                   "questionOptions": {
                     "concept": "1193AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "rendering": "select",
@@ -902,10 +902,7 @@
                         "concept": "162301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Cephalosporins"
                       },
-                      {
-                        "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                        "label": "Other"
-                      },
+                     
                       {
                         "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Ethambutol"
@@ -945,8 +942,24 @@
                       {
                         "concept": "162170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Sulfonamides"
+                      },
+                       {
+                        "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Other"
                       }
                     ]
+                  }
+                },
+                {
+                  "label": "Specify other",
+                  "type": "obs",
+                  "id": "OtherSpecificadverse",
+                  "questionOptions": {
+                    "concept": "20395601-257c-490c-86c2-acffb627f91f",
+                    "rendering": "text"
+                  },
+                  "hide": {
+                    "hideWhenExpression": "adverseMed !== '5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
                   }
                 },
                 {
@@ -1046,6 +1059,18 @@
                         "label": "Hives"
                       }
                     ]
+                  }
+                },
+                {
+                  "label": "Specify other",
+                  "type": "obs",
+                  "id": "OtherSpecificreaction",
+                  "questionOptions": {
+                    "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "rendering": "text"
+                  },
+                  "hide": {
+                    "hideWhenExpression": "rEAction !== '5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
                   }
                 }
               ]
@@ -2388,24 +2413,8 @@
           "isExpanded": "true",
           "questions": [
             {
-              "label": "Differential Diagnosis",
+              "label": "Impression",
               "id": "clinicalDiagnosisId",
-              "type": "diagnosis",
-              "questionOptions": {
-                "rendering": "repeating",
-                "dataSource": "diagnoses",
-                "rank": 1,
-                "datasource": {
-                  "name": "diagnoses",
-                  "config": {
-                    "conceptSourceUuid": "39ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
-                  }
-                }
-              }
-            },
-            {
-              "label": "Site affected",
-              "id": "SiteofClinicalDiagnosis",
               "type": "diagnosis",
               "questionOptions": {
                 "rendering": "repeating",
@@ -2489,8 +2498,8 @@
           "label": "Diagnosis",
           "isExpanded": "true",
           "questions": [
-            {
-              "label": "Primary Diagnosis",
+           {
+              "label": "Main Diagnosis",
               "id": "finalDiagnosisId",
               "type": "diagnosis",
               "questionOptions": {
@@ -2502,6 +2511,45 @@
                     "conceptSourceUuid": "39ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
                   }
                 }
+              }
+            },
+             {
+              "label": "Site affected",
+              "id": "siteOfDiagnosisFinal",
+              "type": "diagnosis",
+              "questionOptions": {
+                "rendering": "repeating",
+                "dataSource": "diagnoses",
+                "rank": 1,
+                "datasource": {
+                  "name": "",
+                  "config": {
+                    "conceptSourceUuid": "39ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+                  }
+                }
+              }
+            },
+            {
+              "label": "Diagnosis Categorization",
+              "required": "true",
+              "type": "obs",
+              "id": "dxCategory",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "1f852fa4-caa6-4ad3-9f8e-551219af52ad",
+                "answers": [
+                  {
+                    "concept": "1687AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "New diagnosis"
+                  },
+                  {
+                    "concept": "c38d0531-69e4-4f41-9baa-d1539fd22b24",
+                    "label": "Pre-Existing diagnosis"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(finalDiagnosisId)"
               }
             },
             {
@@ -2535,26 +2583,6 @@
                 }
               }
             },
-             {
-              "label": "Diagnosis Categorization",
-              "required": "true",
-              "type": "obs",
-              "id": "dxCategory",
-              "questionOptions": {
-                "rendering": "radio",
-                "concept": "1f852fa4-caa6-4ad3-9f8e-551219af52ad",
-                "answers": [
-                  {
-                    "concept": "1687AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "New diagnosis"
-                  },
-                  {
-                    "concept": "c38d0531-69e4-4f41-9baa-d1539fd22b24",
-                    "label": "Pre-Existing diagnosis"
-                  }
-                ]
-              }
-            },
             {
               "label": "Clinical notes",
               "type": "obs",
@@ -2571,12 +2599,12 @@
           "isExpanded": "true",
           "questions": [
             {
-              "label": "Drug Order",
+              "label": "Drug Prescription",
               "required": false,
               "id": "drugsWorkspaceLauncher",
               "questionOptions": {
                 "rendering": "workspace-launcher",
-                "buttonLabel": "Add drug order",
+                "buttonLabel": "Prescribe drug",
                 "workspaceName": "add-drug-order"
               }
             },
@@ -2878,6 +2906,7 @@
         }
       ]
     }
+    
   ],
   "encounterType": "465a92f2-baf8-42e9-9612-53064be868e8"
 }
