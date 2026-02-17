@@ -1,7 +1,7 @@
 {
   "name": "Inpatient Discharge Form",
   "description": "A form for collecting patient's discharge information",
-  "version": "1.0",
+  "version": "2.0",
   "published": true,
   "uuid": "98a781d2-b777-4756-b4c9-c9b0deb3483c",
   "encounterType": "7e618d13-ffdb-4650-9a97-10ccd16ca36d",
@@ -134,45 +134,45 @@
               "type": "obs",
               "id": "compLicaTionsOnMother",
               "questionOptions": {
-                "concept": "CIEL: 1000130",
+               "concept": "3ebe1958-0a41-4131-8551-4ede6286845f",
                 "useMostRecentValue": "true",
                 "autoPopulateWithMostRecentValue": "true",
                 "rendering": "checkbox",
-                "answers": [
+                 "answers": [
                   {
-                    "concept": "CIEL: 113602",
+                    "concept": "113602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Prolonged labour"
                   },
                   {
-                    "concept": "CIEL: 115036",
+                    "concept": "115036AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Obstructed labour"
                   },
                   {
-                    "concept": "CIEL: 160854",
+                    "concept": "160854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Obstetric fistula"
                   },
                   {
-                    "concept": "CIEL: 127253",
+                    "concept": "127253AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Rapture of the uterus"
                   },
                   {
-                    "concept": "CIEL: 118256",
+                    "concept": "118256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Fetal distress"
                   },
                   {
-                    "concept": "CIEL: 129192",
+                    "concept": "129192AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Cord presentation and Cord prolapse"
                   },
                   {
-                    "concept": "CIEL: 115948",
+                    "concept": "115948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Malpresentation and Malpositions"
                   },
                   {
-                    "concept": "CIEL: 112980",
+                    "concept": "112980AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Shoulder dystocia"
                   },
                   {
-                    "concept": "CIEL: 230",
+                    "concept": "230AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "PPH"
                   }
                 ]
@@ -186,10 +186,10 @@
               "type": "obs",
               "id": "counselledOnInfantFeeding",
               "questionOptions": {
-                "concept": "161651AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "162522AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "useMostRecentValue": "true",
                 "autoPopulateWithMostRecentValue": "true",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -210,10 +210,10 @@
               "type": "obs",
               "id": "vitaminAdispensed",
               "questionOptions": {
-                "concept": "161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "86059735-581b-46dc-b421-50563c90c45b",
                 "useMostRecentValue": "true",
                 "autoPopulateWithMostRecentValue": "true",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -363,7 +363,7 @@
               "type": "obs",
               "id": "dischargeDate",
               "questionOptions": {
-                "concept": "1641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "5d353ed8-d6ac-4e7f-aff5-86db1946c8a5",
                 "rendering": "date"
               },
               "validators": [
@@ -391,8 +391,8 @@
               "id": "dischargeInstructions",
               "questionOptions": {
                 "rendering": "textarea",
-                "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rows": "5"
+                "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                
               },
               "validators": []
             },
@@ -402,8 +402,8 @@
               "id": "clinicalNotes",
               "questionOptions": {
                 "concept": "159395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "textarea",
-                "rows": "10"
+                "rendering": "textarea"
+                
               }
             },
             {

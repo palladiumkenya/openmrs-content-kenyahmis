@@ -1,6 +1,6 @@
 Uuid,Privilege name,Description
-b1a7c2e0-8f3a-4e2a-9c1a-1e2f3d4c5b6a,o3: View Mortuary Dashboard,Allows viewing of the mortuary dashboard,
-c2b8d3f1-9e4b-5f3b-0d2b-2f3e4g5h6i7j,o3: Admit Body to Mortuary,Permission to admit a body into the mortuary,
+2d4d8d2b-2482-418a-a4d1-8cf78a065749,o3: View Mortuary Dashboard,Allows viewing of the mortuary dashboard,
+2c9e3d62-0fe3-42bc-ab49-9decba796ffe,o3: Admit Body to Mortuary,Permission to admit a body into the mortuary,
 d3c9e4g2-0f5c-6g4c-1e3c-3g4h5i6j7k8l,o3: Edit Mortuary Records,Allows editing of mortuary records,
 e4d0f5h3-1g6d-7h5d-2f4d-4h5i6j7k8l9m,o3: Discharge Body from Mortuary,Permission to discharge a body from the mortuary,
 f5e1g6i4-2h7e-8i6e-3g5e-5i6j7k8l9m0n,o3: View Mortuary Compartments,Allows viewing of mortuary compartments,

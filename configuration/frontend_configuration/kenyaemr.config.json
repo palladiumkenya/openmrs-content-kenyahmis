@@ -38,25 +38,31 @@
     "Enabled feature flags": ["healthInformationExchange"]
   },
   "@kenyaemr/esm-login-app": {
-    "logo": {
-      "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png"
+    "backgroundImage": {
+      "src": "/openmrs/spa/login-background_ksm.svg"
     },
-    "links": {
-      "loginSuccess": "${openmrsSpaBase}/home"
+    "showPasswordOnSeparateScreen": false,
+    "logo": {
+      "src": "/openmrs/spa/kenyaemr-login-logo_poweredby_kenyaemr.png"
     },
     "footer": {
       "additionalLogos": [
         {
-          "src": "/openmrs/spa/config/assets/kenyahmis-package/sha_logo.svg",
-          "alt": "SHA"
+          "src": "/openmrs/spa/kenya_republic_logo.png",
+          "alt": "KenyaEMR"
         },
         {
-          "src": "/openmrs/spa/config/assets/kenyahmis-package/login-logo.png",
-          "alt": "KenyaEMR"
+          "src": "/openmrs/spa/dha_logo.png",
+          "alt": "DHA"
         }
       ]
     },
-    "backgroundImage": "/openmrs/spa/config/assets/kenyahmis-package/login-background.png"
+    "badgeLogo": {
+      "src": "/openmrs/spa/badge_ksm.png"
+    },
+    "links": {
+      "loginSuccess": "${openmrsSpaBase}/home"
+    }
   },
   "@kenyaemr/esm-patient-clinical-view-app": {
     "extensionSlots": {
@@ -434,6 +440,44 @@
       },
       "ewf-clinical-encounter-lab-results-slot": {
         "add": ["results-viewer"]
+      }
+    },
+    "Translation overrides": {
+      "en": {
+        "mch": "MCH",
+        "pharmacy": "Pharmacy",
+        "radiologyAndImaging": "Radiology and Imaging",
+        "inPatient": "In-Patient",
+        "labOrders": "Lab Orders",
+        "prescription": "Prescription",
+        "reports": "Reports"
+      },
+      "fr": {
+        "mch": "Santé Maternelle et Infantile",
+        "pharmacy": "Pharmacie",
+        "radiologyAndImaging": "Radiologie et Imagerie",
+        "inPatient": "Hospitalisation",
+        "labOrders": "Ordres de Laboratoire",
+        "prescription": "Ordonnance",
+        "reports": "Rapports"
+      },
+      "am": {
+        "mch": "የእናትና ህፃናት ጤና",
+        "pharmacy": "መድሃኒት ቤት",
+        "reports": "መረጃዎች",
+        "radiologyAndImaging": "ራዲዮሎጂ እና ኢሜጂንግ",
+        "inPatient": "ውስጣዊ ሕመምተኛ",
+        "labOrders": "የላቦራቶሪ ትዕዛዞች",
+        "prescription": "የመድኃኒት ውል"
+      },
+      "sw": {
+        "mch": "Afya ya Mama na Mtoto",
+        "pharmacy": "Duka la dawa",
+        "reports": "Ripoti",
+        "radiologyAndImaging": "Radiolojia na Upigaji Picha",
+        "inPatient": "Mgonjwa Aliyeshikwa Hospitalini",
+        "labOrders": "Maagizo ya Maabara",
+        "prescription": "Dawa"
       }
     }
   }

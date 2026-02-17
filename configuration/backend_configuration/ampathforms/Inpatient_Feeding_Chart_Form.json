@@ -1,0 +1,162 @@
+{
+  "name": "Inpatient Feeding Chart",
+  "processor": "EncounterFormProcessor",
+  "encounterType": "465a92f2-baf8-42e9-9612-53064be868e8",
+  "referencedForms": [],
+  "uuid": "a25c23cf-f234-4600-a901-d0f24f69b6eb",
+  "description": "A form for collecting the feeding record at the Inpatient",
+  "version": "1.0",
+  "encounter": "Inpatient Feeding Chart",
+  "published": true,
+  "retired": false,
+  "pages": [
+    {
+      "label": "Inpatient Feeding Chart",
+      "sections": [
+        {
+          "label": "Visit Details",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Date:",
+              "type": "encounterDatetime",
+              "id": "encDate",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "allowFutureDates": "false"
+                }
+              ]
+            },
+            {
+              "label": "Provider:",
+              "type": "encounterProvider",
+              "id": "encProvider",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              }
+            },
+            {
+              "label": "Location:",
+              "type": "encounterLocation",
+              "id": "encLocation",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Patient Details",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Diagnosis:",
+              "type": "obs",
+              "id": "DiaGnosis",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "d44492fd-1b0f-4ec1-9ac8-0e1eb2ebe10b"
+              }
+            },
+            {
+              "label": "Mode Of Feeding:",
+              "type": "obs",
+              "id": "ModeOfFeeding",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "e6ec88e8-dfdb-49d0-9eba-1a868967866b"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Feeding Chart Details",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": " Feeding Details",
+              "type": "obsGroup",
+              "id": "FeedinGDetails",
+              "questionOptions": {
+                "concept": "985AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "repeating"
+              },
+              "questions": [
+                {
+                  "label": "Time Due",
+                  "type": "obs",
+                  "id": "TimeDue",
+                  "datePickerFormat": "timer",
+                  "questionOptions": {
+                    "rendering": "date",
+                    "concept": "9c4c7722-ba3e-4bdf-ab97-c04170100037"
+                  }
+                },
+                {
+                  "label": "Feed/Fluid",
+                  "type": "obs",
+                  "required": true,
+                  "id": "FeedFluid",
+                  "questionOptions": {
+                    "rendering": "text",
+                    "concept": "195fab71-82ab-4c66-9813-73b4c4e06e3a"
+                  }
+                },
+                {
+                  "label": "Amount mls/gms",
+                  "type": "obs",
+                  "id": "AmountMlsGms",
+                  "questionOptions": {
+                    "concept": "162578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "rendering": "number",
+                    "max": "1000",
+                    "min": "0"
+                  }
+                },
+                {
+                  "label": "Total Calories",
+                  "type": "obs",
+                  "id": "TotalCalories",
+                  "questionOptions": {
+                    "concept": "8631339b-826c-4d7c-93f7-093669c756ac",
+                    "rendering": "number",
+                    "max": "1000",
+                    "min": "0"
+                  }
+                },
+                {
+                  "label": "Remarks",
+                  "type": "obs",
+                  "id": "ReMarks",
+                  "questionOptions": {
+                    "rendering": "text",
+                    "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "NOTES",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Feeding Notes",
+              "type": "obs",
+              "id": "FeeDingNotes",
+              "questionOptions": {
+                "rendering": "textarea",
+                "concept": "161011AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
