@@ -15,7 +15,7 @@
       "sections": [
         {
           "label": "Visit Details",
-          "isExpanded": "true",
+          "isExpanded": true,
           "questions": [
             {
               "label": "Date:",
@@ -51,93 +51,120 @@
         },
         {
           "label": "Patient Details",
-          "isExpanded": "true",
+          "isExpanded": true,
           "questions": [
             {
               "label": "Diagnosis:",
               "type": "obs",
+              "required": true,
               "id": "DiaGnosis",
               "questionOptions": {
                 "rendering": "text",
                 "concept": "d44492fd-1b0f-4ec1-9ac8-0e1eb2ebe10b"
-              }
+              },
+              "validators": []
             },
             {
-              "label": "Mode Of Feeding:",
-              "type": "obs",
+              "label": "Mode of Feeding:",
               "id": "ModeOfFeeding",
               "questionOptions": {
-                "rendering": "text",
-                "concept": "e6ec88e8-dfdb-49d0-9eba-1a868967866b"
-              }
+                "concept": "e6ec88e8-dfdb-49d0-9eba-1a868967866b",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "concept": "160240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Oral"
+                  },
+                  {
+                    "concept": "162798AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nasogastric Tube (NGT)"
+                  },
+                  {
+                    "concept": "832e426e-af5f-4461-9161-f2285ed35b53",
+                    "label": "Nasoduodenal Feeding"
+                  },
+                  {
+                    "concept": "1ae2c139-e157-4482-9540-959cf3143c56",
+                    "label": "Nasojejunal (NJ) feeding"
+                  },
+                  {
+                    "concept": "b7973493-b497-4281-912a-785feaece4ed",
+                    "label": "Orogastric"
+                  },
+                  {
+                    "concept": "ef5f8cad-391c-4728-be4e-8efc9cfaa633",
+                    "label": "Peripheral Parenteral"
+                  },
+                  {
+                    "concept": "165951AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Central Parenteral"
+                  },
+                  {
+                    "concept": "91a0392b-8c04-483a-9f14-87cad9466d55",
+                    "label": "Esophagectomy feeding"
+                  },
+                  {
+                    "concept": "156470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "gastrostomy feeding"
+                  },
+                  {
+                    "concept": "4f081e60-17bf-47e8-9d22-f0b1bcf861b6",
+                    "label": "Jejunostomy (J-tube) feeding"
+                  }
+                ]
+              },
+              "validators": []
             }
           ]
         },
         {
           "label": "Feeding Chart Details",
-          "isExpanded": "true",
+          "isExpanded": true,
           "questions": [
             {
-              "label": " Feeding Details",
-              "type": "obsGroup",
-              "id": "FeedinGDetails",
+              "label": "Time Due:",
+              "type": "obs",
+              "required": true,
+              "id": "TimeDue",
+              "datePickerFormat": "timer",
               "questionOptions": {
-                "concept": "985AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "repeating"
-              },
-              "questions": [
-                {
-                  "label": "Time Due",
-                  "type": "obs",
-                  "id": "TimeDue",
-                  "datePickerFormat": "timer",
-                  "questionOptions": {
-                    "rendering": "date",
-                    "concept": "9c4c7722-ba3e-4bdf-ab97-c04170100037"
-                  }
-                },
-                {
-                  "label": "Feed/Fluid",
-                  "type": "obs",
-                  "required": true,
-                  "id": "FeedFluid",
-                  "questionOptions": {
-                    "rendering": "text",
-                    "concept": "195fab71-82ab-4c66-9813-73b4c4e06e3a"
-                  }
-                },
-                {
-                  "label": "Amount mls/gms",
-                  "type": "obs",
-                  "id": "AmountMlsGms",
-                  "questionOptions": {
-                    "concept": "162578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "rendering": "number",
-                    "max": "1000",
-                    "min": "0"
-                  }
-                },
-                {
-                  "label": "Total Calories",
-                  "type": "obs",
-                  "id": "TotalCalories",
-                  "questionOptions": {
-                    "concept": "8631339b-826c-4d7c-93f7-093669c756ac",
-                    "rendering": "number",
-                    "max": "1000",
-                    "min": "0"
-                  }
-                },
-                {
-                  "label": "Remarks",
-                  "type": "obs",
-                  "id": "ReMarks",
-                  "questionOptions": {
-                    "rendering": "text",
-                    "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  }
-                }
-              ]
+                "rendering": "date",
+                "concept": "9c4c7722-ba3e-4bdf-ab97-c04170100037"
+              }
+            },
+            {
+              "label": "Feed/Fluid",
+              "type": "obs",
+              "required": true,
+              "id": "FeedFluid",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "195fab71-82ab-4c66-9813-73b4c4e06e3a"
+              }
+            },
+            {
+              "label": "Amount mls/gms",
+              "type": "obs",
+              "required": true,
+              "id": "AmountMlsGms",
+              "questionOptions": {
+                "concept": "162578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "2500",
+                "min": "0"
+              }
+            },
+            {
+              "label": "Total Calories",
+              "type": "obs",
+              "required": true,
+              "id": "TotalCalories",
+              "questionOptions": {
+                "concept": "8631339b-826c-4d7c-93f7-093669c756ac",
+                "rendering": "number",
+                "max": "500",
+                "min": "0"
+              }
             }
           ]
         },
@@ -152,7 +179,48 @@
               "questionOptions": {
                 "rendering": "textarea",
                 "concept": "161011AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-              }
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Prescriber",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Name of health care provider:",
+              "type": "encounterProvider",
+              "required": "false",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "id": "encProvider "
+            },
+            {
+              "label": "Designation",
+              "type": "obs",
+              "required": true,
+              "id": "completedBy",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "166688AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "validators": []
+            },
+            {
+              "label": "Date:",
+              "type": "encounterDatetime",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "allowFutureDates": "false"
+                }
+              ],
+              "id": "encDate"
             }
           ]
         }

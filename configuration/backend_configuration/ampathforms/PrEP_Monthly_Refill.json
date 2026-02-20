@@ -317,7 +317,7 @@
 					  "label": "Restart"
 					},
 					{
-					  "concept": "1256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+					  "concept": "dc1079c4-9d7b-4955-afaf-fae8d136e567",
 					  "label": "Switch"
 					},
 					{
@@ -333,6 +333,7 @@
 				"label": "Reason for switching",
 				"type": "obs",
 				"id": "reasonForSwitch",
+				 "required": true,
 				"questionOptions": {
 				  "concept": "4b59ac07-cf72-4f46-b8c0-4f62b1779f7e",
 				  "rendering": "select",
@@ -360,13 +361,14 @@
 				  ]
 				},
 				"hide": {
-				  "hideWhenExpression": "treatmentPlan !== '1256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+				  "hideWhenExpression": "treatmentPlan !== 'dc1079c4-9d7b-4955-afaf-fae8d136e567'"
 				}
 			  },
 			  {
 				"label": "Date of switch",
 				"type": "obs",
 				"id": "dateOfSwitch",
+				 "required": true,
 				"questionOptions": {
 				  "concept": "68bfa3f3-1fc7-4d9d-bb41-e897c3c430ef",
 				  "rendering": "date"
@@ -378,7 +380,7 @@
 				  }
 				],
 				"hide": {
-				  "hideWhenExpression": "treatmentPlan !== '1256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+				  "hideWhenExpression": "treatmentPlan !== 'dc1079c4-9d7b-4955-afaf-fae8d136e567'"
 				}
 			  },
 			   {
@@ -548,7 +550,7 @@
                     "label": "TDF/3TC"
                   },
                   {
-                    "concept": "724fc218-47b4-49fa-8f5d-7e5f3e5d4874",
+                    "concept": "d62e9ddf-14be-4e93-8d84-d21d0e2eb60c",
                     "label": "TAF/FTC"
                   },
                   {
@@ -583,32 +585,7 @@
                 "hideWhenExpression": "dosingStrategyMen !== '5424AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
                }
             },
-            {
-              "label": "Regimen prescribed",
-              "type": "obs",
-              "id": "regimenOptions",
-              "questionOptions": {
-                "concept": "164515AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "select",
-                "answers": [
-                  {
-                    "concept": "161364AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "TDF/3TC"
-                  },
-                  {
-                    "concept": "84795AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "TDF"
-                  },
-                  {
-                    "concept": "104567AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "TDF/FTC(Preferred)"
-                  }
-                ]
-              },
-              "hide": {
-                "hideWhenExpression": "prepTypeMaleOne !== 'cb583a50-2b6c-4a6a-a458-a6a3c41fa1a7' && prepTypeFemale !== 'cb583a50-2b6c-4a6a-a458-a6a3c41fa1a7'"
-              }
-            },
+        
 			  {
 				"label": "Number of months",
 				"type": "obs",

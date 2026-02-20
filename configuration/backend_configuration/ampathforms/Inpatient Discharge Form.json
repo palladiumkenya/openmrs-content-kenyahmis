@@ -262,6 +262,28 @@
               }
             },
             {
+              "label": "Baby's discharge status",
+              "type": "obs",
+              "id": "babyDischargeStatus",
+              "questionOptions": {
+                "concept": "1856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "concept": "160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Alive"
+                  },
+                  {
+                    "concept": "134612AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Dead"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "sex !== 'F' || !(age >= 10 && age <= 45)"
+              }
+            },
+            {
               "label": "Baby(s) details",
               "type": "obsGroup",
               "questionOptions": {
