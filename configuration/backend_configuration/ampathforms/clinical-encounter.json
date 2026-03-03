@@ -902,7 +902,6 @@
                         "concept": "162301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Cephalosporins"
                       },
-                     
                       {
                         "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Ethambutol"
@@ -943,7 +942,7 @@
                         "concept": "162170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Sulfonamides"
                       },
-                       {
+                      {
                         "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                         "label": "Other"
                       }
@@ -2416,9 +2415,11 @@
               "label": "Impression",
               "id": "clinicalDiagnosisId",
               "type": "diagnosis",
+              "required": true,
               "questionOptions": {
                 "rendering": "repeating",
                 "dataSource": "diagnoses",
+                "min": 1,
                 "rank": 1,
                 "datasource": {
                   "name": "diagnoses",
@@ -2498,28 +2499,21 @@
           "label": "Diagnosis",
           "isExpanded": "true",
           "questions": [
-          {
-             "label": "Main Diagnosis",
-             "id": "finalDiagnosisId",
-             "type": "diagnosis",
-             "questionOptions": {
-               "rendering": "remote-select",
-               "rank": 2,
-               "datasource": {
-                 "name": "diagnoses",
-                 "config": {
-                   "conceptSourceUuid": "39ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
-                 }
-               }
-             },
-             "validators": [
-               {
-                 "type": "js_expression",
-                 "failsWhenExpression": "isEmpty(myValue) && FORM_CONTEXT && FORM_CONTEXT.valueProcessingInfo && FORM_CONTEXT.valueProcessingInfo.lastFormTab >= 3",
-                 "message": "Main Diagnosis is required once you open Patient Management."
-               }
-             ]
-           },
+            {
+              "label": "Main Diagnosis",
+              "id": "finalDiagnosisId",
+              "type": "diagnosis",
+              "questionOptions": {
+                "rendering": "remote-select",
+                "rank": 2,
+                "datasource": {
+                  "name": "diagnoses",
+                  "config": {
+                    "conceptSourceUuid": "39ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+                  }
+                }
+              }
+            },
             {
               "label": "Diagnosis Categorization",
               "required": "true",
@@ -2595,7 +2589,7 @@
                 }
               }
             },
-             {
+            {
               "label": "Counseling offered",
               "type": "obs",
               "required": false,
@@ -2678,7 +2672,7 @@
               "questionOptions": {
                 "concept": "160433AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "radio",
-                 "answers": [
+                "answers": [
                   {
                     "concept": "1654AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Admit"
@@ -2694,7 +2688,7 @@
                 ]
               }
             },
-           {
+            {
               "label": "Next Appointment",
               "required": false,
               "id": "appointmentWorkspaceLauncher",
@@ -2881,7 +2875,6 @@
         }
       ]
     }
-    
   ],
   "encounterType": "465a92f2-baf8-42e9-9612-53064be868e8"
 }

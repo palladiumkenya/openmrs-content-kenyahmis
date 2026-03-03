@@ -1,18 +1,12 @@
 {
   "name": "NCD Initial Form",
-  "description": "A form to record NCD data",
+  "description": "A form to record clinical data for NCD patients",
   "version": "2.0",
   "published": true,
   "uuid": "c4994dd7-f2b6-4c28-bdc7-8b1d9d2a6a97",
   "retired": false,
   "encounter": "NCD Initial",
-  "meta": {
-    "programs": {
-      "uuid": "ffee43c4-9ccd-4e55-8a70-93194e7fafc6",
-      "isEnrollment": true,
-      "discontinuationDateQuestionId": ""
-    }
-  },
+  "meta": {},
   "pages": [
     {
       "label": "Visit Details",
@@ -1750,6 +1744,6 @@
     }
   ],
   "processor": "EncounterFormProcessor",
-  "encounterType": "dfcbe5d0-1afb-48a0-8f1e-5e5988b11f15",
+  "encounterType": "b402d094-bff3-4b31-b167-82426b4e3e28",
   "referencedForms": []
 }

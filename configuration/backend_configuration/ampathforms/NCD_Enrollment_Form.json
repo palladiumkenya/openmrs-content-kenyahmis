@@ -1,0 +1,65 @@
+{
+  "name": "NCD Enrollment Form",
+  "description": "A form to enroll a patient into NCD program",
+  "version": "2.0",
+  "published": true,
+  "uuid": "fca1aad8-aa0d-4027-b10d-a26079f1f20e",
+  "retired": false,
+  "encounter": "NCD Initial",
+  "meta": {
+    "programs": {
+      "uuid": "ffee43c4-9ccd-4e55-8a70-93194e7fafc6",
+      "isEnrollment": true,
+      "discontinuationDateQuestionId": ""
+    }
+  },
+  "pages": [
+    {
+      "label": "Visit Details",
+      "sections": [
+        {
+          "label": "Encounter Details",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Date:",
+              "type": "encounterDatetime",
+              "required": "true",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "allowFutureDates": "false"
+                }
+              ],
+              "id": "encDate"
+            },
+            {
+              "label": "Provider:",
+              "type": "encounterProvider",
+              "required": "true",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "id": "encProvider "
+            },
+            {
+              "label": "Location:",
+              "type": "encounterLocation",
+              "required": "true",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "id": "encLocation"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "processor": "EncounterFormProcessor",
+  "encounterType": "dfcbe5d0-1afb-48a0-8f1e-5e5988b11f15",
+  "referencedForms": []
+}

@@ -7,7 +7,7 @@
   "retired": false,
   "referencedForms": [],
   "encounter": "MAT Discontinuation Encounter",
-  "version": "1",
+  "version": "2.0",
   "meta": {
     "programs": {
       "uuid": "4b898e20-9b2d-11ee-b9d1-0242ac120002",
@@ -80,11 +80,11 @@
               "type": "obs",
               "id": "wishRequestFor",
               "questionOptions": {
-                "concept": "164089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "164089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "select",
                 "answers": [
                   {
-                    "concept": "1455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "concept": "1455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Abrupt cessation"
                   },
                   {
@@ -106,7 +106,7 @@
               "type": "obs",
               "id": "reasonForDiscontinuation",
               "questionOptions": {
-                "concept": "161555AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "text"
               },
               "hide": {
@@ -118,7 +118,7 @@
               "type": "obs",
               "id": "understandCompletionOfTheDoseTaper",
               "questionOptions": {
-                "concept": "141745AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "295cd5e7-3c66-4abe-9916-ee99b840c1b7",
                 "rendering": "radio",
                 "answers": [
                   {
@@ -189,7 +189,7 @@
                     "label": "Verbal or physical violence or threatened violence to other clients or staff "
                   },
                   {
-                    "concept": "165291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "concept": "8742743d-a74f-41c4-8f54-6010418a755f",
                     "label": "Drug possession or dealing around the clinic or institution"
                   },
                   {
@@ -273,7 +273,7 @@
               "type": "obs",
               "id": "nameCounselor",
               "questionOptions": {
-                "concept": "1473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "1473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "text"
               }
             },
@@ -282,7 +282,7 @@
               "type": "obs",
               "id": "nameClinician",
               "questionOptions": {
-                "concept": "1473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "167018AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "text"
               }
             }

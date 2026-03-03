@@ -76,7 +76,7 @@
               "questionOptions": {
                 "concept": "5087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "number",
-                "max": "100",
+                "max": "300",
                 "min": "0"
               },
               "historicalExpression": "HD.getObject('prevEnc').getValue('5087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')",

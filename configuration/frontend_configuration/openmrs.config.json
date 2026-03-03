@@ -765,7 +765,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-primary-logo.svg",
+      "src": "/openmrs/spa/assets/kenyahmis-package/taifa_care/kenyaemr-primary-logo.svg",
       "link": "${openmrsSpaBase}/home/facility-dashboard"
     },
     "extensionSlots": {
@@ -906,10 +906,10 @@
     }
   },
   "@openmrs/esm-styleguide": {
-    "Brand color #1": "#183D1A",
-    "Brand color #2": "#1D491F",
-    "Brand color #3": " #2C6D2F",
-    "implementationName": "Home"
+    "Brand color #1": "#0018A3",
+    "Brand color #2": "#001FD1",
+    "Brand color #3": "#2E4DFF",
+    "implementationName": "Taifa Care"
   },
   "@openmrs/esm-stock-management-app": {
     "Display conditions": {
@@ -940,5 +940,12 @@
   },
   "@openmrs/esm-patient-attachments-app": {
     "maxFileSize": 5
+  },
+  "@openmrs/esm-patient-search-app": {
+    "search": {
+      "disableTabletSearchOnKeyUp": true,
+      "showRecentlySearchedPatients": false
+    },
+    "defaultIdentifierTypes": ["24aedd37-b5be-4e08-8311-3721b8d5100d"]
   }
 }

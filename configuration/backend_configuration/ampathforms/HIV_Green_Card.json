@@ -848,8 +848,6 @@
               "required": "true",
               "questionOptions": {
                 "concept": "c49549c5-f761-408b-bc71-c0ae1fd16b73",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "rendering": "radio",
                 "answers": [
                   {
@@ -1122,10 +1120,7 @@
                   "questionOptions": {
                     "rendering": "workspace-launcher",
                     "buttonLabel": "Add lab order",
-                    "workspaceName": "add-lab-order",
-                     "additionalProps": {
-                  "orderTypeUuid": "52a447d3-a64a-11e3-9aeb-50e549534c5e"
-                }
+                    "workspaceName": "add-lab-order"
                   },
                   "hide": {
                     "hideWhenExpression": "((String(cOughDuratiOn) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0) + (String(FeverIsh) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0) + (String(WeigHtLossGain) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0) + (String(NighTsWeatS) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0) + (String(LeSSpLayFul) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0) + (String(ConTacTbCase) === '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'? 1 : 0)) === 0"
@@ -1344,8 +1339,6 @@
               "type": "obsGroup",
               "questionOptions": {
                 "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "rendering": "group"
               },
               "questions": [
@@ -1355,8 +1348,6 @@
                   "id": "yeLLOwUrine",
                   "questionOptions": {
                     "concept": "1729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "useMostRecentValue": true,
-                    "autoPopulateWithMostRecentValue": true,
                     "rendering": "radio",
                     "answers": [
                       {
@@ -1379,8 +1370,6 @@
                   "id": "NumBnessHaFeT",
                   "questionOptions": {
                     "concept": "1729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "useMostRecentValue": true,
-                    "autoPopulateWithMostRecentValue": true,
                     "rendering": "radio",
                     "answers": [
                       {
@@ -1403,8 +1392,6 @@
                   "id": "YellOwEyEs",
                   "questionOptions": {
                     "concept": "1729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "useMostRecentValue": true,
-                    "autoPopulateWithMostRecentValue": true,
                     "rendering": "radio",
                     "answers": [
                       {
@@ -1427,8 +1414,6 @@
                   "id": "teNderNessaBdOmeN",
                   "questionOptions": {
                     "concept": "1729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "useMostRecentValue": true,
-                    "autoPopulateWithMostRecentValue": true,
                     "rendering": "radio",
                     "answers": [
                       {
@@ -2407,8 +2392,6 @@
               "required": "true",
               "questionOptions": {
                 "concept": "160596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "rendering": "radio",
                 "answers": [
                   {
@@ -2674,8 +2657,6 @@
               "required": "true",
               "questionOptions": {
                 "concept": "160653AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "rendering": "select",
                 "answers": [
                   {
@@ -2703,8 +2684,6 @@
               "questionOptions": {
                 "rendering": "checkbox",
                 "concept": "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "answers": [
                   {
                     "concept": "160570AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -2857,8 +2836,6 @@
               "questionOptions": {
                 "rendering": "checkbox",
                 "concept": "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "answers": [
                   {
                     "concept": "160570AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -3007,8 +2984,6 @@
               "questionOptions": {
                 "rendering": "checkbox",
                 "concept": "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "answers": [
                   {
                     "concept": "190AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -3125,8 +3100,6 @@
               "questionOptions": {
                 "rendering": "checkbox",
                 "concept": "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "useMostRecentValue": true,
-                "autoPopulateWithMostRecentValue": true,
                 "answers": [
                   {
                     "concept": "190AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -4555,7 +4528,6 @@
             }
           ]
         }
-       
       ]
     },
     {
@@ -4590,13 +4562,13 @@
           "label": "Treatment Plan",
           "isExpanded": "true",
           "questions": [
-             {
-              "label": "Drug Prescription",
+            {
+              "label": "Drug Order",
               "required": false,
               "id": "drugsWorkspaceLauncher",
               "questionOptions": {
                 "rendering": "workspace-launcher",
-                "buttonLabel": "Prescribe drug",
+                "buttonLabel": "Add drug order",
                 "workspaceName": "add-drug-order"
               }
             }
@@ -4606,7 +4578,6 @@
           "label": "Prophylaxis",
           "isExpanded": "true",
           "questions": [
-            
             {
               "label": "Prophylaxis used?",
               "type": "obs",
@@ -5280,7 +5251,6 @@
               "hide": {
                 "hideWhenExpression": "screenedSti !== '703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
-              
             },
             {
               "label": "STI Partner Notification",
