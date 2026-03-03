@@ -2172,61 +2172,6 @@
               }
             }
           ]
-        },
-        {
-          "label": "Ward Details",
-          "isExpanded": "true",
-          "questions": [
-            {
-              "type": "obsGroup",
-              "id": "inpatientDispositionConstruct",
-              "questionOptions": {
-                "concept": "CIEL:169405",
-                "rendering": "group"
-              },
-              "questions": [
-                {
-                  "id": "disposition",
-                  "label": "Disposition",
-                  "type": "obs",
-                  "required": true,
-                  "questionOptions": {
-                    "rendering": "radio",
-                    "required": true,
-                    "concept": "CIEL:169402",
-                    "answers": [
-                      {
-                        "concept": "CIEL:168619"
-                      }
-                    ]
-                  },
-                  "hide": {
-                    "hideWhenExpression": "outcomePatient !=='77eafb3f-58d3-4397-a6dc-d2c06e9062f3'"
-                  },
-                  "validators": []
-                },
-                {
-                  "id": "admitToLocation",
-                  "label": "Admit To Location",
-                  "type": "obs",
-                  "required": true,
-                  "questionOptions": {
-                    "rendering": "remote-select",
-                    "concept": "CIEL:169403",
-                    "datasource": {
-                      "name": "location",
-                      "config": {
-                        "tag": "Admission Location"
-                      }
-                    }
-                  },
-                  "hide": {
-                    "hideWhenExpression": "outcomePatient !=='77eafb3f-58d3-4397-a6dc-d2c06e9062f3'"
-                  }
-                }
-              ]
-            }
-          ]
         }
       ]
     }
